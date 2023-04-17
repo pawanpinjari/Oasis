@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            margin-top: 5%;
+            margin-left: 35%;
+        }
+        input[type=text]{
+            width: 150px;
+            height: 25px;
+        }
+        label{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .result{
+            margin-left: 30%;
+        }
+       table,td,th{
+        border: none;
+        font-size: 20px;
+
+       }
+       td,th{
+        text-align: center;
+       width: 100px;
+       }
+
+       th{
+        background-color: burlywood;
+        height: 30px;
+       }
+       td{
+        background-color: aqua;
+       }
+       input[type=button],button{
+        margin: 10px;
+        width: 70px;
+        height: 35px;
+        background-color: blueviolet;
+       }
+      
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>TO Do List</h1>
+        <label for="">Product Name:</label>
+        <input type="text" name="name" id="t1"><br>
+        <label for="price">Product Price:</label>
+        <input type="text" name="price" id="t2"><br>
+        <input type="button" value="Add" onclick="funAdd()">
+        <input type="button" value="Update" onclick="funUpdate()">
+    </div>
+    <div class="result">
+        <div id="div1"></div>
+    </div>
+    
+    <script>
+       var list=new Array();
+       Display();
+       list1=document.getElementById("list1");
+       d1=document.getElementById("div1");
+        
+       function funAdd(){
+        var textName=document.getElementById("t1").value;
+        var textPrice=document.getElementById("t2").value;
+        localStorage.setItem(textName,textPrice);
+        Display();
+       }
+       function Display(){
+       var str="";
+            str+="<table border='1'>";
+                str+="<tr><th>Name</th><th>price</th><th>Delete</th><tr>"
+            for(i=0;i<localStorage.length;i++){
+                str+="<tr><td>"+localStorage.key(i)+"</td><td>"+localStorage.getItem(localStorage.key(i))+"</td><td><button type='button' value="+localStorage.key(i)+" onclick='funDelete(event)'>Delete</button></td></tr>";
+                
+            }
+
+            str+="</table>";
+            div1.innerHTML=str;
+       }
+
+       function funUpdate(){
+        
+        funAdd();
+       }
+       function funDelete(event){
+          alert(event.currentTarget.value)
+           var textName=event.currentTarget.value;
+           if(confirm("Are you sure to delete?")){
+               localStorage.removeItem(textName);
+                Display();
+           }
+       }
+       
+
+    </script>
+</body>
+</html>
