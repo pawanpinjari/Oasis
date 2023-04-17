@@ -1,0 +1,32 @@
+body {
+	font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+	text-align: center;
+	margin-top: 50px;
+  }
+  
+  .main{
+	margin-top: 3vw;
+	text-align: center;
+  }
+  input[type="text"] {
+	padding: 10px;
+	border-bottom: 2px solid gray;
+	font-size: 16px;
+	margin-right: 10px;
+  }
+  
+  select {
+	padding: 10px;
+	font-size: 16px;
+  }
+
+  
+  #result {
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 20px;
+  }
+  
